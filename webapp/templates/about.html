@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<div class="main-block">
+    <div class="cat-actions">
+        <div>
+            <h2> Name: {{ name }} </h2>
+            <p> Age: {{ age }} </p>
+            <p> Satiety: {{ satiety }} </p>
+            <p> Happiness: {{ happiness }} </p>
+            <form action="/cat_actions/" method="post">
+                {% csrf_token %}
+                <input name="name" value="{{ name }}" hidden>
+                <label for="actions">Select action:</label>
+                <select id="cat" name="action">
+                    <option value="feed">Feed the cat</option>
+                    <option value="play">Play with the cat</option>
+                    <option value="sleep">Put the cat to bed</option>
+                </select>
+                <input type="submit" value="Send"/>
+            </form>
+        </div>
+
+        <div class="image-cat">
+            {% if is_asleep %}
+                <img src="{% static 'images/cat_sleep.jpeg' %}" alt="cat-state">
+            {% elif happiness < 30 or satiety < 30 %}
+                <img src="{% static 'images/cat_sad.webp' %}" alt="cat-state">
+            {% elif satiety > 40 or happiness > 40 %}
+                <img src="{% static 'images/cat_play.avif' %}" alt="cat-state">
+            {% else %}
+                <img src="{% static 'images/cat_standart.webp' %}" alt="cat-state">
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

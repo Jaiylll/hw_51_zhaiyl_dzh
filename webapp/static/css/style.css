@@ -1,0 +1,38 @@
+body,
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+body {
+    background-color: mintcream;
+}
+
+.main-block {
+    padding-top: 50px;
+}
+
+.add-cat-block {
+    padding: 30px;
+    margin: 0 auto;
+    width: 500px;
+    box-shadow: 1px 1px 7px;
+    border-radius: 10px;
+    background-color: azure;
+}
+
+.cat-actions {
+    padding: 30px;
+    margin: 0 auto;
+    width: 500px;
+    box-shadow: 1px 1px 7px;
+    border-radius: 10px;
+    background-color: azure;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.image-cat img {
+    width: 200px;
+    height: auto;
+}
